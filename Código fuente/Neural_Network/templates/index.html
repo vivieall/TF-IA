@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+        <!--Material textarea-->
+<div style="height: 100vh; width: 100%; margin-left: 20; margin-right: 20; ">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-md-6">
+
+        <div class="card card-body mx-auto" style="padding-left: 20;">
+            <div class="md-form">
+                <form action="/think", method="POST">
+
+                <textarea id="form7" name="message" class="md-textarea form-control" rows="3"></textarea>
+                <label for="form7">Ingrese su mensaje para clasificarlo</label>
+
+                <div class="row justify-content-center">
+                    <button type="submit" class="btn btn-outline-success">
+                        Enviar
+                    </button>
+                </div>
+                </form>
+                <p>&nbsp;</p>
+                {% if message == "spam" %}
+               <div class="row justify-content-center">
+                <div><h6><span style="color:red">El correo es spam</span></h6> </div>
+               </div>
+               {% endif %}
+               {% if message == "ham" %}
+               <div class="row justify-content-center">
+                <div><h6><span style="color:green">El correo es no spam</span></h6> </div>
+               </div>
+               {% endif %}
+            </div>
+        </div>
+
+        </div>
+    </div>
+</div>
+        {% endblock %}
